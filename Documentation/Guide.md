@@ -13,7 +13,7 @@ contain multi `GameObject` position on map, and stored in array on `Awake()`
 
 Add Enemy Script which
 - Start pointing to first point (as target)
-- Then calculate the Vector of movement butween **current** position and **target** position
+- Then calculate the Vector of movement between **current** position and **target** position
 - Move on that Vector by calling `transform.Translate()`
 - Then move on to next target
 
@@ -24,7 +24,7 @@ Add Wave Spawner Script Which
 - Got `enemyPrefab` , `timeBetweenWaves` , Counter `countdown` 
   -  `spawnPoint` and `waveNumber`
 - When `countdown` Hit Zero `SpawnWave();` Method Called by `StartCoroutine(SpawnWave());` 
-   > which is method handler with ability to wait for specifice time.
+   > which is method handler with ability to wait for specific time.
 - > `private IEnumerator SpawnWave()
   >  {
   >      waveNumber++;`
