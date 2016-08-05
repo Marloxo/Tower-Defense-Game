@@ -1,12 +1,17 @@
 ﻿using UnityEngine;
-
-
-public class Turrent : MonoBehaviour
+public class Turret : MonoBehaviour
 {
     private Transform target;
+    [Header("Attributes")]
     public float range = 15f;
+    public float fireRate = 1f;
+    public float fireCountDown = 0f;
+    [Header("Unity Setup Fields")]
     public float turnSpeed = 10f;
     public string enemyTag = "Enemy";
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+
     public Transform PartToRotate;
     void Start()
     {//To Invoke a specific method in time seconds, then repeatedly every repeatRate seconds.
@@ -40,7 +45,7 @@ public class Turrent : MonoBehaviour
         if (target == null)
             return;
 
-		//Target Lock On	
+        //Target Lock On	
         //Generate Vector Between A and B
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
@@ -52,7 +57,24 @@ public class Turrent : MonoBehaviour
 
         PartToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
+        if (fireCountDown <= 0f)
+        {
+            shoot();
+            fireCountDown = 1f / fireRate;
+        }
+        fireCountDown -= Time.deltaTime;
     }
+
+    private void shoot()
+    {
+        GameObject bulletGo = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = bulletGo.GetComponent<Bullet>();
+        if (bullet != null)
+            bullet.Seek(target);
+
+    }
+
+
     //Built-in Function
     //If you wanted to be always visible call `OnDrawGizmo()` instead 
     void OnDrawGizmo()

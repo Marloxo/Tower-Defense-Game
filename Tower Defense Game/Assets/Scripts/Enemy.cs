@@ -1,13 +1,9 @@
-﻿using System;
-using UnityEngine;
-
-
+﻿using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed = 10f;
     private Transform target;
     private int wavepointIndex = 0;
-    // Use this for initialization
     void Start()
     {
         target = waypoints.points[0];

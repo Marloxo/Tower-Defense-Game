@@ -20,14 +20,15 @@ Add Enemy Script which
 - Then move on to next target
 
 ## 3. Stage Three:
-Create Wave Spawner that will spit out waves of enemies.
+Create Wave Spawners that will spit out waves of enemies.
 
 Add Wave Spawner Script Which
 - Got `enemyPrefab` , `timeBetweenWaves` , Counter `countdown` 
   -  `spawnPoint` and `waveNumber`
 - When `countdown` Hit Zero `SpawnWave();` Method Called by `StartCoroutine(SpawnWave());` 
    > which is method handler with ability to wait for specific time.
--  ``` private IEnumerator SpawnWave()
+```
+ private IEnumerator SpawnWave()
     {
         waveNumber++;
   
@@ -41,24 +42,55 @@ Add Wave Spawner Script Which
     private void SpawnEnemy()
     {
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
-    } ```
+    }
+```
 
 ## 4. Stage Four:
 Import a cool turret model and make it lock on to our enemies.
 
-First Update Enemy Prefabe with 'Enemy' tag
+First Update Enemy Prefab with 'Enemy' tag
 
 Add Turret Script Which
 - Start with `Start()` which we will call `InvokeRepeating()` Method that will Invoke a specific method in time seconds,
  then repeatedly every repeatRate seconds.
 - `UpdateTarget()` which will update **enemies** Array with the current enemies
 and store the closest target in **target** variable.
--`Update()` will check first if  **target** null it will do nothing.
+- `Update()` will check first if  **target** null it will do nothing.
 - else will Generate Vector3 Between Turret position and the target enemy.
 - then Creates a rotation with the specified forward and upwards directions From the Vector3
 - Next step transform lookRotation rotation to Angles (x,y,z)
 - and Use `Quaternion.Lerp()` Method for Enhancment to smooth the move from one state to another
 - finally rotate the turret (or the specific part of turret) with the results directions on Y axis
 
--PS : `OnDrawGizmo()` used to show in game mode window the range of the turret
+- PS : `OnDrawGizmo()` used to show in game mode window the range of the turret
 
+## 5. Stage five:
+Let's shoot some enemies.
+
+First thing we add small ball as a bullet
+
+Then Create `Bullet` Script which
+- start with `Seek()` Method that will define the target from `Turret` Script
+- Then `Update()` Method which start by checking if there is a defined target
+- if So, create **Vector3** `dir` between *bullet firePoint* *(which is in turret script)*
+    and the target Prefab 
+- then calculate `distanceThisFrame` which produce the distance of bullet in this frame
+    and check that if it's less or equal to `dir.magnitude` *(the length of the Vector3)*
+    then bullet Hit the target
+    else continue moving in target direction by `transform.Translate`.
+- In case of target get hit  we will call `HitTarget()`
+    and `Instantiate` destruction partical system *(impactEffect)*
+    then destroy bullet, target and impactEffect after 2 sec.
+
+second step
+
+Update `Turret` Script 
+in `Update()` Method  add check for `fireCountDown`
+- if it less than `0f`
+    - Then Shoot the Target !!
+    - and set the `fireCountDown` to `fireCountDown = 1f / fireRate;`
+- else decries the `fireCountDown` by 1 sec.
+
+Add `Shoot()` Method which 
+- Instantiate the bullet in `firePoint` position
+- and call the `Seek()` method from `bullet` script.  

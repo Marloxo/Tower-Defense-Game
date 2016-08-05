@@ -1,12 +1,7 @@
 ﻿using UnityEngine;
-
-
 public class waypoints : MonoBehaviour
-{
-
-    // Use this for initialization
+{ // Use this for initialization
     public static Transform[] points;
-
     void Awake()
     {
         points = new Transform[transform.childCount];

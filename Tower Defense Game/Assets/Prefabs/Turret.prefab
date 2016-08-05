@@ -48,6 +48,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &157334
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 489930}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &173048
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,6 +118,18 @@ Transform:
   - {fileID: 430756}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &489930
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157334}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.6, z: 2.74}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 490448}
+  m_RootOrder: 1
 --- !u!4 &490448
 Transform:
   m_ObjectHideFlags: 1
@@ -114,6 +141,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 470024}
+  - {fileID: 489930}
   m_Father: {fileID: 481170}
   m_RootOrder: 0
 --- !u!23 &2334044
@@ -197,7 +225,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 15
+  fireRate: 1
+  fireCountDown: 0
+  turnSpeed: 10
   enemyTag: Enemy
+  bulletPrefab: {fileID: 143092, guid: fafc6da65f33c2a4cbddeca5fdced1c6, type: 2}
+  firePoint: {fileID: 489930}
   PartToRotate: {fileID: 490448}
 --- !u!1001 &100100000
 Prefab:
