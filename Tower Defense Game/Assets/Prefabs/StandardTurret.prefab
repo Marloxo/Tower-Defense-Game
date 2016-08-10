@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 481170}
   - 114: {fileID: 11402070}
   m_Layer: 0
-  m_Name: Turret
+  m_Name: StandardTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

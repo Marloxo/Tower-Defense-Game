@@ -76,8 +76,8 @@ public class Turret : MonoBehaviour
 
 
     //Built-in Function
-    //If you wanted to be always visible call `OnDrawGizmo()` instead 
-    void OnDrawGizmo()
+    //If you wanted to be always visible call `OnDrawGizmo()` instead of `OnDrawGizmosSelected()`
+    void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, range);

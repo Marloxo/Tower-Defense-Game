@@ -59,7 +59,7 @@ and store the closest target in **target** variable.
 - else will Generate Vector3 Between Turret position and the target enemy.
 - then Creates a rotation with the specified forward and upwards directions From the Vector3
 - Next step transform lookRotation rotation to Angles (x,y,z)
-- and Use `Quaternion.Lerp()` Method for Enhancment to smooth the move from one state to another
+- and Use `Quaternion.Lerp()` Method for Enhancement to smooth the move from one state to another
 - finally rotate the turret (or the specific part of turret) with the results directions on Y axis
 
 - PS : `OnDrawGizmo()` used to show in game mode window the range of the turret
@@ -79,8 +79,8 @@ Then Create `Bullet` Script which
     then bullet Hit the target
     else continue moving in target direction by `transform.Translate`.
 - In case of target get hit  we will call `HitTarget()`
-    and `Instantiate` destruction partical system *(impactEffect)*
-    then destroy bullet, target and impactEffect after 2 sec.
+    and `Instantiate` destruction particle system *(impactEffect)*
+    then destroy bullet, target and impactEffect after **2 sec**.
 
 second step
 
@@ -94,3 +94,27 @@ in `Update()` Method  add check for `fireCountDown`
 Add `Shoot()` Method which 
 - Instantiate the bullet in `firePoint` position
 - and call the `Seek()` method from `bullet` script.  
+
+## 6. Stage six:
+Let's add a functionality for building turrets in the game with little cool Mouse effect.
+
+- We start by adding Node Script which will be responsable for
+    - Keeping track whether if there is something top of that Node
+    - And also handle some user input so it will make sure to our kind of
+      highlight the note when we hover over it to give the user submission feedback
+      that he can actually press it and something will happen 
+    - It will also be responsible for checking whether or not the our player has pressed that
+      particular node and then building something on top of it.
+
+- The First thing to do is getting the `Renderer` to set a Color from `Start()` Method
+So it's only find it at the very beginning of the game and then cash it.
+- Then on `OnMouseEnter()` Method we set the Color.
+- And on `OnMouseExit()` Method we set the Color back to initial color.
+- Add `OnMouseDown()` Method so on click we build turret on top of that *clicked Node !!*
+
+- but before doing that we need to manage that operation So we create `BuildManager` script in **GameManager**.
+ - First Create `GetTurretToBuild()` Method to get the required **Turret** To Build.
+ - Then Make `BuildManager` Object as a singleton: 
+    - by Creating one instance from the `BuildManager` Object.
+    - and `Awake()` Method which will be called once on Game Start.
+- Finally add `Start()` Method which will set the *`turretToBuild`* referance.
