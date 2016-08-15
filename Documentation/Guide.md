@@ -57,10 +57,10 @@ Add Turret Script Which
 and store the closest target in **target** variable.
 - `Update()` will check first if  **target** null it will do nothing.
 - else will Generate Vector3 Between Turret position and the target enemy.
-- then Creates a rotation with the specified forward and upwards directions From the Vector3
+- Then Creates a rotation with the specified forward and upwards directions From the Vector3
 - Next step transform lookRotation rotation to Angles (x,y,z)
-- and Use `Quaternion.Lerp()` Method for Enhancement to smooth the move from one state to another
-- finally rotate the turret (or the specific part of turret) with the results directions on Y axis
+- And Use `Quaternion.Lerp()` Method for Enhancement to smooth the move from one state to another
+- Finally rotate the turret (or the specific part of turret) with the results directions on Y axis
 
 - PS : `OnDrawGizmo()` used to show in game mode window the range of the turret
 
@@ -70,11 +70,11 @@ Let's shoot some enemies.
 First thing we add small ball as a bullet
 
 Then Create `Bullet` Script which
-- start with `Seek()` Method that will define the target from `Turret` Script
+- Start with `Seek()` Method that will define the target from `Turret` Script
 - Then `Update()` Method which start by checking if there is a defined target
-- if So, create **Vector3** `dir` between *bullet firePoint* *(which is in turret script)*
+- `if` So, create **Vector3** `dir` between *bullet firePoint* *(which is in turret script)*
     and the target Prefab 
-- then calculate `distanceThisFrame` which produce the distance of bullet in this frame
+- Then calculate `distanceThisFrame` which produce the distance of bullet in this frame
     and check that if it's less or equal to `dir.magnitude` *(the length of the Vector3)*
     then bullet Hit the target
     else continue moving in target direction by `transform.Translate`.
@@ -86,19 +86,19 @@ second step
 
 Update `Turret` Script 
 in `Update()` Method  add check for `fireCountDown`
-- if it less than `0f`
+- `if` it less than `0f`
     - Then Shoot the Target !!
-    - and set the `fireCountDown` to `fireCountDown = 1f / fireRate;`
-- else decries the `fireCountDown` by 1 sec.
+    - And set the `fireCountDown` to `fireCountDown = 1f / fireRate;`
+- `else` decries the `fireCountDown` by 1 sec.
 
 Add `Shoot()` Method which 
 - Instantiate the bullet in `firePoint` position
-- and call the `Seek()` method from `bullet` script.  
+- And call the `Seek()` method from `bullet` script.  
 
 ## 6. Stage six:
 Let's add a functionality for building turrets in the game with little cool Mouse effect.
 
-- We start by adding Node Script which will be responsable for
+- We start by adding `Node` Script which will be responsable for
     - Keeping track whether if there is something top of that Node
     - And also handle some user input so it will make sure to our kind of
       highlight the note when we hover over it to give the user submission feedback
@@ -112,9 +112,28 @@ So it's only find it at the very beginning of the game and then cash it.
 - And on `OnMouseExit()` Method we set the Color back to initial color.
 - Add `OnMouseDown()` Method so on click we build turret on top of that *clicked Node !!*
 
-- but before doing that we need to manage that operation So we create `BuildManager` script in **GameManager**.
+- But before doing that we need to manage that operation So we create `BuildManager` script in **GameManager**.
  - First Create `GetTurretToBuild()` Method to get the required **Turret** To Build.
  - Then Make `BuildManager` Object as a singleton: 
-    - by Creating one instance from the `BuildManager` Object.
-    - and `Awake()` Method which will be called once on Game Start.
+    - By Creating one instance from the `BuildManager` Object.
+    - And `Awake()` Method which will be called once on Game Start.
 - Finally add `Start()` Method which will set the *`turretToBuild`* referance.
+
+## 7. Stage seven:
+Playing around with Camera Controller that allow the player to move around the camera in an RTS-inspired way.
+
+We start by adding `CameraController` Script which will be responsible for
+ - Taking *user input* and move the camera according to that input
+ > transform.Translate(Vector3.forward * panSpeed * Time.deltaTime);
+
+     We multiply with `panSpeed` to control the moving speed 
+     & multiply with `Time.deltaTime` to make the Translate independent  from the difference in CPU speed from device to another.
+
+ - Then we change the Camera position according to mouse **`ScrollWheel`**
+   - First get the `Axis` value of the virtual axis identified by `axisName`
+     from unity project setting -> Input 
+   - Then get the current position
+   - Finally move the camera according to `Mouse ScrollWheel` multiply with big number like: ex 1000
+     for transforming the (1,-1) range to **X** position
+   - In addition, we use  **`Mathf.Clamp()`** Method to make sure surrounding **Y** Value between
+     a minimum float and maximum float value.

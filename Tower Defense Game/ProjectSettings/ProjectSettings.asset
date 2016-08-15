@@ -9,7 +9,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: Iglesk
   productName: Tower Defense Game
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -169,10 +169,16 @@ PlayerSettings:
     banner: {fileID: 0}
   androidGamepadSupportLevel: 0
   resolutionDialogBanner: {fileID: 0}
-  m_BuildTargetIcons: []
+  m_BuildTargetIcons:
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 0}
+      m_Width: 128
+      m_Height: 128
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsAPIs: []
-  webPlayerTemplate: APPLICATION:Default
+  webPlayerTemplate: APPLICATION:Black Background
   m_TemplateCustomTags: {}
   wiiUTitleID: 0005000011000000
   wiiUGroupID: 00010000
@@ -324,7 +330,9 @@ PlayerSettings:
   psp2InfoBarColor: 0
   psmSplashimage: {fileID: 0}
   spritePackerPolicy: 
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    1: 
+    13: 
   metroPackageName: Tower Defense Game
   metroPackageVersion: 
   metroCertificatePath: 
@@ -412,14 +420,34 @@ PlayerSettings:
   intPropertyNames:
   - Android::ScriptingBackend
   - Standalone::ScriptingBackend
+  - WebGL::ScriptingBackend
+  - WebGL::audioCompressionFormat
+  - WebGL::exceptionSupport
+  - WebGL::memorySize
   - WebPlayer::ScriptingBackend
   Android::ScriptingBackend: 0
   Standalone::ScriptingBackend: 0
+  WebGL::ScriptingBackend: 1
+  WebGL::audioCompressionFormat: 4
+  WebGL::exceptionSupport: 1
+  WebGL::memorySize: 256
   WebPlayer::ScriptingBackend: 0
   boolPropertyNames:
+  - WebGL::analyzeBuildSize
+  - WebGL::dataCaching
+  - WebGL::useEmbeddedResources
   - XboxOne::enus
+  WebGL::analyzeBuildSize: 0
+  WebGL::dataCaching: 0
+  WebGL::useEmbeddedResources: 0
   XboxOne::enus: 1
-  stringPropertyNames: []
+  stringPropertyNames:
+  - WebGL::emscriptenArgs
+  - WebGL::template
+  - additionalIl2CppArgs::additionalIl2CppArgs
+  WebGL::emscriptenArgs: 
+  WebGL::template: APPLICATION:Default
+  additionalIl2CppArgs::additionalIl2CppArgs: 
   cloudProjectId: 
   projectName: 
   organizationId: 
