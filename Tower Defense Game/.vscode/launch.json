@@ -6,7 +6,7 @@
 			"type":"mono",
 			"request":"attach",
 			"address":"localhost",
-			"port":3740
+			"port":3028
 		}
 	]
 }

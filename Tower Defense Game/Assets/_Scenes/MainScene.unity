@@ -4944,6 +4944,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panSpeed: 30
   panBorderThickness: 10
+  scrollSpeed: 5
+  minY: 10
+  maxY: 80
 --- !u!1 &807848247
 GameObject:
   m_ObjectHideFlags: 0

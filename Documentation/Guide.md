@@ -122,6 +122,8 @@ So it's only find it at the very beginning of the game and then cash it.
 ## 7. Stage seven:
 Playing around with Camera Controller that allow the player to move around the camera in an RTS-inspired way.
 
+**TODO: Enhancement use this referance: http://forum.unity3d.com/threads/rts-camera-script.72045/**
+**TODO: Continue work on RTS camera from: https://github.com/Marloxo/RtsCameraTest thanks to garcialuigi**
 We start by adding `CameraController` Script which will be responsible for
  - Taking *user input* and move the camera according to that input
  > transform.Translate(Vector3.forward * panSpeed * Time.deltaTime);
@@ -137,3 +139,5 @@ We start by adding `CameraController` Script which will be responsible for
      for transforming the (1,-1) range to **X** position
    - In addition, we use  **`Mathf.Clamp()`** Method to make sure surrounding **Y** Value between
      a minimum float and maximum float value.
+
+## 8. Stage eight:
