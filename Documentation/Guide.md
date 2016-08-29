@@ -141,3 +141,18 @@ We start by adding `CameraController` Script which will be responsible for
      a minimum float and maximum float value.
 
 ## 8. Stage eight:
+Start making a shop where the player can purchase different turrets.
+
+- We start by adding new `Panel` the UI background for our *Shop* 
+- Then we add `Horizontal Layout Group` from Inspector option, this will just make sure to stretch all of our
+  different elements parented to the shop to fit the shop object
+  so if I make another shop turret item and another one you can see that they are resized and
+  repositioned so that they fill out the entire shop object
+- Then we turn off `Child Force Expand` option because we don't want them to be stretched
+- We just want them to have a fixed size So we Add `Layout Element` to Item **button** under **Shop UI**
+- Then we change the Item Image.
+- We have to change our navigation to **none** because we're using a mouse to navigate with and we don't want to be
+  able to shift between UI elements using the arrow keys or a controller.
+
+- Then we need to add `Shop` Script to manage the purchase process which will be linked to UI
+  `onClick` event
