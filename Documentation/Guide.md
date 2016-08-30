@@ -155,4 +155,15 @@ Start making a shop where the player can purchase different turrets.
   able to shift between UI elements using the arrow keys or a controller.
 
 - Then we need to add `Shop` Script to manage the purchase process which will be linked to UI
-  `onClick` event
+  `onClick` event which will call **Turret Purchase method** depend on *selected turret*
+  > `buildManager.SetTurretToBuild(buildManager.{selected Turret});`
+
+- Then we edit `BuildManager` script
+ - Adding `SetTurretToBuild()` Method to initialize the selected turret
+ - And delete the `Start()` method because we don't need the default turret unless it's selected.
+
+- Then we edit `Node` script
+ - Editing `OnMouseDown()` Method to check if `GetTurretToBuild()` is not null which mean no turret selected.
+ - Editing `OnMouseEnter()` Method to check if mouse over UI element then do nothing to avoid overflow clicking.
+
+ ## 9. Stage nine:
