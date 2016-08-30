@@ -7,9 +7,9 @@
 [Bb]uild/
 [Bb]uilds/
 3rdParty/
-/Assets/AssetStoreTools*
-/.vs
-/.vscode
+Assets/AssetStoreTools*
+.vs/
+.vscode/
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #

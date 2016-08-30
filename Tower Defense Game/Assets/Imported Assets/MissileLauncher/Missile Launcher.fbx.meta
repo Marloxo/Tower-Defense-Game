@@ -1,24 +1,29 @@
 fileFormatVersion: 2
-guid: a81395f0090091d4f9fb84c9332b3d46
-timeCreated: 1469431477
+guid: 54a62e9991ac22144a27378ee993e05e
+timeCreated: 1472585472
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Turret
+    100000: Missile
     100002: //RootNode
-    100004: Turret.001
-    400000: Turret
+    100004: Stand
+    100006: Turret
+    400000: Missile
     400002: //RootNode
-    400004: Turret.001
-    2300000: Turret
-    2300002: Turret.001
-    3300000: Turret
-    3300002: Turret.001
-    4300000: Turret.001
-    4300002: Turret
+    400004: Stand
+    400006: Turret
+    2300000: Missile
+    2300002: Stand
+    2300004: Turret
+    3300000: Missile
+    3300002: Stand
+    3300004: Turret
+    4300000: Missile
+    4300002: Stand
+    4300004: Turret
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
@@ -41,7 +46,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 3
+    globalScale: 0.5
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
