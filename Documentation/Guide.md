@@ -117,12 +117,12 @@ So it's only find it at the very beginning of the game and then cash it.
  - Then Make `BuildManager` Object as a singleton: 
     - By Creating one instance from the `BuildManager` Object.
     - And `Awake()` Method which will be called once on Game Start.
-- Finally add `Start()` Method which will set the *`turretToBuild`* referance.
+- Finally add `Start()` Method which will set the *`turretToBuild`* reference.
 
 ## 7. Stage seven:
 Playing around with Camera Controller that allow the player to move around the camera in an RTS-inspired way.
 
-**TODO: Enhancement use this referance: http://forum.unity3d.com/threads/rts-camera-script.72045/**
+**TODO: Enhancement use this reference: http://forum.unity3d.com/threads/rts-camera-script.72045/**
 **TODO: Continue work on RTS camera from: https://github.com/Marloxo/RtsCameraTest thanks to garcialuigi**
 We start by adding `CameraController` Script which will be responsible for
  - Taking *user input* and move the camera according to that input
@@ -167,3 +167,10 @@ Start making a shop where the player can purchase different turrets.
  - Editing `OnMouseEnter()` Method to check if mouse over UI element then do nothing to avoid overflow clicking.
 
  ## 9. Stage nine:
+ :construction: Little House Cleaning
+
+PS: 
+ - When u Import new asset always import the new asset in newly separated folder
+   to avoid conflict with existed material and the imported material with the asset.
+
+## 10. Stage ten:
