@@ -14,7 +14,7 @@ contain multi `GameObject` position on map, and stored in array on `Awake()`
 Create some enemies and make them walk down the path of destruction using waypoints.
 
 Add Enemy Script which
-- Start pointing to first point (as target)
+- Start pointing to the first point (as target)
 - Then calculate the Vector of movement between **current** position and **target** position
 - Move on that Vector by calling `transform.Translate()`
 - Then move on to next target
@@ -26,7 +26,7 @@ Add Wave Spawner Script Which
 - Got `enemyPrefab` , `timeBetweenWaves` , Counter `countdown` 
   -  `spawnPoint` and `waveNumber`
 - When `countdown` Hit Zero `SpawnWave();` Method Called by `StartCoroutine(SpawnWave());` 
-   > which is method handler with ability to wait for specific time.
+   > which is method handler with an ability to wait for specific time.
 ```
  private IEnumerator SpawnWave()
     {
@@ -60,7 +60,7 @@ and store the closest target in **target** variable.
 - Then Creates a rotation with the specified forward and upwards directions From the Vector3
 - Next step transform lookRotation rotation to Angles (x,y,z)
 - And Use `Quaternion.Lerp()` Method for Enhancement to smooth the move from one state to another
-- Finally rotate the turret (or the specific part of turret) with the results directions on Y axis
+- Finally, rotate the turret (or the specific part of turret) with the results directions on Y axis
 
 - PS : `OnDrawGizmo()` used to show in game mode window the range of the turret
 
@@ -71,7 +71,7 @@ First thing we add small ball as a bullet
 
 Then Create `Bullet` Script which
 - Start with `Seek()` Method that will define the target from `Turret` Script
-- Then `Update()` Method which start by checking if there is a defined target
+- Then `Update()` Method which starts by checking if there is a defined target
 - `if` So, create **Vector3** `dir` between *bullet firePoint* *(which is in turret script)*
     and the target Prefab 
 - Then calculate `distanceThisFrame` which produce the distance of bullet in this frame
@@ -98,16 +98,16 @@ Add `Shoot()` Method which
 ## 6. Stage six:
 Let's add a functionality for building turrets in the game with little cool Mouse effect.
 
-- We start by adding `Node` Script which will be responsable for
+- We start by adding `Node` Script which will be responsible for
     - Keeping track whether if there is something top of that Node
     - And also handle some user input so it will make sure to our kind of
       highlight the note when we hover over it to give the user submission feedback
       that he can actually press it and something will happen 
-    - It will also be responsible for checking whether or not the our player has pressed that
+    - It will also be responsible for checking whether or not our player has pressed that
       particular node and then building something on top of it.
 
 - The First thing to do is getting the `Renderer` to set a Color from `Start()` Method
-So it's only find it at the very beginning of the game and then cash it.
+So it only finds it at the very beginning of the game and then Cache it.
 - Then on `OnMouseEnter()` Method we set the Color.
 - And on `OnMouseExit()` Method we set the Color back to initial color.
 - Add `OnMouseDown()` Method so on click we build turret on top of that *clicked Node !!*
@@ -174,3 +174,13 @@ PS:
    to avoid conflict with existed material and the imported material with the asset.
 
 ## 10. Stage ten:
+Add a missile that will explode on impact.
+
+- First we will work on Missile Launcher  **Missile** by adding a new material
+- Then change `HitTarget()` Method to check for **`explosionRadius`**
+  - If in this range then call `Explode()` method 
+     - which will see what it hits and look through all of the things that it hit
+     - and check if they are indeed an enemy 
+     - and if they are we will damage them which basically now just means destroy them,
+     - that is basically all the logic that we are going to need now. 
+  - Else call `Damage()` method which will `destroy` the **enemy**.
