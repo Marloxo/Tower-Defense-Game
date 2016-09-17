@@ -176,7 +176,7 @@ PS:
 ## 10. Stage ten:
 Add a missile that will explode on impact.
 
-- First we will work on Missile Launcher  **Missile** by adding a new material
+- First, we will work on Missile Launcher  **Missile** by adding a new material
 - Then change `HitTarget()` Method to check for **`explosionRadius`**
   - If in this range then call `Explode()` method 
      - which will see what it hits and look through all of the things that it hit
@@ -184,3 +184,29 @@ Add a missile that will explode on impact.
      - and if they are we will damage them which basically now just means destroy them,
      - that is basically all the logic that we are going to need now. 
   - Else call `Damage()` method which will `destroy` the **enemy**.
+
+## 11. Stage eleven:
+Show Me the Money :P 
+add money to our game and tidy up the Shop and Build Manager.
+
+- Start by Adding new Script "turretBluePrint"
+- We add `[System.Serializable]` to class header to tell Unity to show class properties in Inspector window
+- Then add `prefab` , `cost`.
+
+- We go back to `Shop` Script and instead of our calling everything on the building manager
+  here we can simply change `PurcherStandardTurret` to `SelectStandardTurret()`
+
+- We go back to `BuildManager` Script and change `turretToBuild` type to `turretBluePrint`
+- Then delete `GetTurretToBuild()` method and add `CanBuild` property.
+  
+- We go back to `Node` Script and change `OnMouseEnter()` instead of letting the node script build the turret
+  we change it to let the `buildManager` script do that thing.
+  with adding new Method `BuildTurretOn()`.
+- In addition, we change the check for building turret to new `CanBuild`
+- And add `GetBuildPosition()` to pass the BuildPosition to the `BuildManager`.
+
+Now it's Time to start building CURRENCY system (PS: Show me the money!!)
+- We start By adding new script in `GameManager` called `PlayerStats`
+- Then create static money property and start money
+- We go back to `BuildManager` Script and on `BuildTurretOn()` Method check if player got enough money
+  to build the selected turret if so subtract the *Turret* cost from player money.  

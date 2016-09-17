@@ -4947,6 +4947,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57939ad2d37a7049bfbd84b4ab99ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  standardTurret:
+    prefab: {fileID: 106922, guid: 17751237484e93e4cbac22c6b04fb55e, type: 2}
+    cost: 100
+  missileLauncher:
+    prefab: {fileID: 156368, guid: 927e3afdb6430aa4fadf07553e801f15, type: 2}
+    cost: 250
+  turretWithPanels:
+    prefab: {fileID: 138756, guid: bc44b3d0947de864c83b1cccfd00b372, type: 2}
+    cost: 150
 --- !u!1 &781887173
 GameObject:
   m_ObjectHideFlags: 0
@@ -5544,6 +5553,7 @@ GameObject:
   - 4: {fileID: 875838811}
   - 114: {fileID: 875838810}
   - 114: {fileID: 875838812}
+  - 114: {fileID: 875838813}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5594,6 +5604,17 @@ MonoBehaviour:
   MissileLauncherPrefab: {fileID: 156368, guid: 927e3afdb6430aa4fadf07553e801f15,
     type: 2}
   TurretWithPanels: {fileID: 138756, guid: bc44b3d0947de864c83b1cccfd00b372, type: 2}
+--- !u!114 &875838813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 875838809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f5546a6dbba8f4eb2ecfcf3e975512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &877436103
 Prefab:
   m_ObjectHideFlags: 0
@@ -6938,19 +6959,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22423648, guid: 452c27da5a7d26947b6c462270203b30, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 198
       objectReference: {fileID: 0}
     - target: {fileID: 22423648, guid: 452c27da5a7d26947b6c462270203b30, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -34
       objectReference: {fileID: 0}
     - target: {fileID: 22423648, guid: 452c27da5a7d26947b6c462270203b30, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 22423648, guid: 452c27da5a7d26947b6c462270203b30, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 68
       objectReference: {fileID: 0}
     - target: {fileID: 22423648, guid: 452c27da5a7d26947b6c462270203b30, type: 2}
       propertyPath: m_AnchorMin.x
@@ -6958,7 +6979,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22423648, guid: 452c27da5a7d26947b6c462270203b30, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22423648, guid: 452c27da5a7d26947b6c462270203b30, type: 2}
       propertyPath: m_AnchorMax.x
@@ -6966,7 +6987,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22423648, guid: 452c27da5a7d26947b6c462270203b30, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22423648, guid: 452c27da5a7d26947b6c462270203b30, type: 2}
       propertyPath: m_Pivot.x
@@ -6986,7 +7007,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11423142, guid: 452c27da5a7d26947b6c462270203b30, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PurchaseStandardTurret
+      value: SelectStandardTurret
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 452c27da5a7d26947b6c462270203b30, type: 2}
@@ -9263,19 +9284,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22480640, guid: 0321c2cc39697494a97ac912ad444a96, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 303
       objectReference: {fileID: 0}
     - target: {fileID: 22480640, guid: 0321c2cc39697494a97ac912ad444a96, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -34
       objectReference: {fileID: 0}
     - target: {fileID: 22480640, guid: 0321c2cc39697494a97ac912ad444a96, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 22480640, guid: 0321c2cc39697494a97ac912ad444a96, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 68
       objectReference: {fileID: 0}
     - target: {fileID: 22480640, guid: 0321c2cc39697494a97ac912ad444a96, type: 2}
       propertyPath: m_AnchorMin.x
@@ -9283,7 +9304,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22480640, guid: 0321c2cc39697494a97ac912ad444a96, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22480640, guid: 0321c2cc39697494a97ac912ad444a96, type: 2}
       propertyPath: m_AnchorMax.x
@@ -9291,7 +9312,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22480640, guid: 0321c2cc39697494a97ac912ad444a96, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22480640, guid: 0321c2cc39697494a97ac912ad444a96, type: 2}
       propertyPath: m_Pivot.x
@@ -9319,7 +9340,7 @@ Prefab:
       objectReference: {fileID: 777177123}
     - target: {fileID: 11427698, guid: 0321c2cc39697494a97ac912ad444a96, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PurchaseMissileLauncher
+      value: SelectMissileLauncher
       objectReference: {fileID: 0}
     - target: {fileID: 11427698, guid: 0321c2cc39697494a97ac912ad444a96, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -12489,19 +12510,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22480640, guid: 0321c2cc39697494a97ac912ad444a96, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 408
       objectReference: {fileID: 0}
     - target: {fileID: 22480640, guid: 0321c2cc39697494a97ac912ad444a96, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -34
       objectReference: {fileID: 0}
     - target: {fileID: 22480640, guid: 0321c2cc39697494a97ac912ad444a96, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 22480640, guid: 0321c2cc39697494a97ac912ad444a96, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 68
       objectReference: {fileID: 0}
     - target: {fileID: 22480640, guid: 0321c2cc39697494a97ac912ad444a96, type: 2}
       propertyPath: m_AnchorMin.x
@@ -12509,7 +12530,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22480640, guid: 0321c2cc39697494a97ac912ad444a96, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22480640, guid: 0321c2cc39697494a97ac912ad444a96, type: 2}
       propertyPath: m_AnchorMax.x
@@ -12517,7 +12538,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22480640, guid: 0321c2cc39697494a97ac912ad444a96, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22480640, guid: 0321c2cc39697494a97ac912ad444a96, type: 2}
       propertyPath: m_Pivot.x
@@ -12545,7 +12566,7 @@ Prefab:
       objectReference: {fileID: 777177123}
     - target: {fileID: 11427698, guid: 0321c2cc39697494a97ac912ad444a96, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PurchaseTurretWithPanels
+      value: SelectTurretWithPanels
       objectReference: {fileID: 0}
     - target: {fileID: 11427698, guid: 0321c2cc39697494a97ac912ad444a96, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
