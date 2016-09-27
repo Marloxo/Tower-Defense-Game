@@ -210,3 +210,19 @@ Now it's Time to start building CURRENCY system (PS: Show me the money!!)
 - Then create static money property and start money
 - We go back to `BuildManager` Script and on `BuildTurretOn()` Method check if player got enough money
   to build the selected turret if so subtract the *Turret* cost from player money.  
+
+## 12. Stage twelve:
+Let's spice up the UI! 
+
+- In this Stage we will create text to display our money,
+- Improve our hover animation on the nodes and the way that we display text in the game.
+- We also add a price tag to the turrets and create a cool build effect.
+- Also we are going to change the Countdown in way make it more lovely.
+- Finally we want to add Money Counter.
+
+- We Start with hover animation by going to `Node` Script and add check if player have enough money
+  by checking that from `BuildManager` if not show red warning color for player.
+
+- Then We add new UI Element `Canvas` and change the *Render Mode* to `world Space`
+  Which will allow the Canvas to be fade with zooming.
+  
