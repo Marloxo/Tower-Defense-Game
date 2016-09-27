@@ -88,7 +88,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.859, g: 0.834, b: 0.109, a: 0}
+  notEnoughMoneyColor: {r: 0.9264706, g: 0.1362457, b: 0.1362457, a: 1}
   positionOffset: {x: 0, y: 0.5, z: 0}
+  turret: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

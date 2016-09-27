@@ -19,7 +19,10 @@ public class WaveSpawner : MonoBehaviour
             countdown = timeBetweenWaves;
         }
         countdown -= Time.deltaTime;
-        waveCountdownText.text = Math.Round(countdown).ToString();
+        //To Make Sure dont display negitave number
+        countdown = Mathf.Clamp(countdown,0f,Mathf.Infinity);
+        
+        waveCountdownText.text = String.Format("{0:00.00}",countdown);
     }
 
     private IEnumerator SpawnWave()
