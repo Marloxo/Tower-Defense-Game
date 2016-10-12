@@ -226,3 +226,17 @@ Let's spice up the UI!
 - Then We add new UI Element `Canvas` and change the *Render Mode* to `world Space`
   Which will allow the Canvas to be fade with zooming.
   
+## 13. Stage thirteen:
+In this Stage we add a lives counter, a game manager, enemy health and a cool death effect.
+
+- We Start with `PlayerStats` Script to keep track of our lives by adding `lives` parameter
+and `startlives`.
+- PS: **`OverlayCanvas`**: is UI element on the screen rendered on top of the scene
+    **`World Space Canvas`** is UI element behave as any other object in the scene.
+- Add `LivesUI` Script to Show lives count.
+- Then We modifies `Enemy` script by adding new method `EndPath()` which will be responsible for reducing player lives and destroy the Enemy object,
+  `TakeDamage()` which will be responsible for damaging the enemy Prefab with specific amount from bullet and calling `Die()` method in case health bellow Zero,
+  and `Die()` which will be responsible for destroying enemy Prefab and add some money for player.
+- Then we add `GameManager` Script which will be responsible for end game, restart the game and maybe pause the game.
+- Then We modifies `Bullet` script by modifies `Damage` method which will be call `TakeDamage()` method instead of destroying the Enemy object which will handle that for us as previos mentioned,
+  and add `damage` parameter which will specify the amount of damage will be taken.
