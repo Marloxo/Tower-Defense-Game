@@ -3,6 +3,7 @@ public class Bullet : MonoBehaviour
 {
     private Transform target;
     public float speed = 70f;
+    public int damage = 50;
     public float explosionRadius;
     public GameObject impactEffect;
     public void Seek(Transform _target)
@@ -10,7 +11,7 @@ public class Bullet : MonoBehaviour
         target = _target;
     }
 
-    // Update is called once per frame
+    // Update is called once per frame 
     void Update()
     {
         if (target == null)
@@ -36,13 +37,9 @@ public class Bullet : MonoBehaviour
         Destroy(effectIns, 5f);
 
         if (explosionRadius > 0f)
-        {
             Explode();
-        }
         else
-        {
             Damage(target);
-        }
 
         Destroy(gameObject);
     }
@@ -52,14 +49,14 @@ public class Bullet : MonoBehaviour
         foreach (Collider collider in colliders)
         {
             if (collider.tag == "Enemy")
-            {
                 Damage(collider.transform);
-            }
         }
     }
     void Damage(Transform enemy)
     {
-        Destroy(enemy.gameObject);
+        Enemy e = enemy.GetComponent<Enemy>();
+        if (e != null) //Destroy(enemy.gameObject);
+            e.TakeDamage(damage);
     }
 
     void OnDrawGizmosSelected()
