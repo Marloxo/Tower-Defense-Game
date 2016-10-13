@@ -2,8 +2,10 @@
 public class Shop : MonoBehaviour
 {
     public TurretBluePrint standardTurret;
-    public TurretBluePrint missileLauncher;
     public TurretBluePrint turretWithPanels;
+    public TurretBluePrint missileLauncher;
+    public TurretBluePrint LaserBeamer;
+
     BuildManager buildManager;
     void Start()
     {
@@ -13,12 +15,16 @@ public class Shop : MonoBehaviour
     {
         buildManager.SelectTurretToBuild(standardTurret);
     }
+    public void SelectTurretWithPanels()
+    {
+        buildManager.SelectTurretToBuild(turretWithPanels);
+    }
     public void SelectMissileLauncher()
     {
         buildManager.SelectTurretToBuild(missileLauncher);
     }
-    public void SelectTurretWithPanels()
+    public void SelectLaserBeamer()
     {
-        buildManager.SelectTurretToBuild(turretWithPanels);
+        buildManager.SelectTurretToBuild(LaserBeamer);
     }
 }
