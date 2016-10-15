@@ -5,12 +5,12 @@
 A 3D Tower Defense Game built using [Unity][1] engine written in **C#** .
 
 ##Table of Contents :book:
-- [Software](https://github.com/Marloxo/Tower-Defense-Game#software---space_invader)
-- [How to contribute](https://github.com/Marloxo/Tower-Defense-Game#)
-- [Documentation Guide](https://github.com/Marloxo/Tower-Defense-Game#faq-speech_balloon)
-- [To Do List](https://github.com/Marloxo/Tower-Defense-Game#)
-- [Credit](https://github.com/Marloxo/Tower-Defense-Game#)
-- [License](https://github.com/Marloxo/Tower-Defense-Game#Copyright---pencil)
+- [Software](https://github.com/Marloxo/Tower-Defense-Game#software-space_invader)
+- [How to contribute](https://github.com/Marloxo/Tower-Defense-Game#how-to-contribute-octocat)
+- [Documentation Guide](https://github.com/Marloxo/Tower-Defense-Game#documentation-guide-books)
+- [To Do List](https://github.com/Marloxo/Tower-Defense-Game#to-do-list-clipboard)
+- [Credit](https://github.com/Marloxo/Tower-Defense-Game#credit-tada)
+- [License](https://github.com/Marloxo/Tower-Defense-Game#copyright---pencil)
 
 ##Software :space_invader:
 This project runs on the [Unity][1] engine.
