@@ -214,29 +214,47 @@ Now it's Time to start building CURRENCY system (PS: Show me the money!!)
 ## 12. Stage twelve:
 Let's spice up the UI! 
 
-- In this Stage we will create text to display our money,
+- In this Stage, we will create text to display our money,
 - Improve our hover animation on the nodes and the way that we display text in the game.
 - We also add a price tag to the turrets and create a cool build effect.
-- Also we are going to change the Countdown in way make it more lovely.
-- Finally we want to add Money Counter.
+- Also, we are going to change the Countdown in a way make it more lovely.
+- Finally, we want to add Money Counter.
 
-- We Start with hover animation by going to `Node` Script and add check if player have enough money
-  by checking that from `BuildManager` if not show red warning color for player.
+- We Start with hover animation by going to `Node` Script and add check if player has enough money
+  by checking that from `BuildManager` if not show red warning color for the player.
 
 - Then We add new UI Element `Canvas` and change the *Render Mode* to `world Space`
   Which will allow the Canvas to be fade with zooming.
   
 ## 13. Stage thirteen:
-In this Stage we add a lives counter, a game manager, enemy health and a cool death effect.
+In this Stage, we add a lives counter, a game manager, enemy health and a cool death effect.
 
 - We Start with `PlayerStats` Script to keep track of our lives by adding `lives` parameter
 and `startlives`.
 - PS: **`OverlayCanvas`**: is UI element on the screen rendered on top of the scene
     **`World Space Canvas`** is UI element behave as any other object in the scene.
+
 - Add `LivesUI` Script to Show lives count.
-- Then We modifies `Enemy` script by adding new method `EndPath()` which will be responsible for reducing player lives and destroy the Enemy object,
-  `TakeDamage()` which will be responsible for damaging the enemy Prefab with specific amount from bullet and calling `Die()` method in case health bellow Zero,
-  and `Die()` which will be responsible for destroying enemy Prefab and add some money for player.
+
+- Then We modify `Enemy` script by adding new method `EndPath()` which will be responsible for reducing player lives and destroy the Enemy object,
+  `TakeDamage()` which will be responsible for damaging the enemy Prefab with a specific amount from bullet and calling `Die()` method in case health bellow Zero,
+  and `Die()` which will be responsible for destroying enemy Prefab and add some money for the player.
 - Then we add `GameManager` Script which will be responsible for end game, restart the game and maybe pause the game.
-- Then We modifies `Bullet` script by modifies `Damage` method which will be call `TakeDamage()` method instead of destroying the Enemy object which will handle that for us as previos mentioned,
+- Then We modify `Bullet` script by modifies `Damage` method which will be call `TakeDamage()` method instead of destroy the Enemy object which will handle that for us as previously mentioned,
   and add `damage` parameter which will specify the amount of damage will be taken.
+
+## 14. Stage fourteen:
+Say Hello to the brand new *`laser Beamer`*.
+
+- We start by adding `laser Beamer Turret` to shop menu.
+- Then we modifies `shop` Script by adding `SelectlaserBeamer()` method.
+- After that, we modify `buildManager` Script by removing prefab reference because we not using them at all
+  we are using the `TurretBluePrint` instead.
+
+- Going back to our `laser Beamer Turret` we start by adding *Line Renderer* to it
+  then tweak the setting little bit ex(color,shadows,...).
+- After that, we edit `Turret` Script and organize the parameter little bit
+  Then we modify the `Update()` method by checking first if this turret uses laser
+  Then we disable the *laser* if `target null` to turn off the laser when no target in the range
+  and encapsulate the Targe Lock in `LockOnTarge()` method.
+  Finally, we add `Laser()` method to draw *Line Renderer* between the `turret` and `target`.
