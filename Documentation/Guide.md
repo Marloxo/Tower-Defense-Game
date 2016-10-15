@@ -1,4 +1,4 @@
-# The Project Divided Into Multi Stages
+# The Project Divided Into Multi Stages 🎮
 
 ## 1. Stage One:
 Create the foundation of the map (Nodes,Ground)
@@ -26,7 +26,9 @@ Add Wave Spawner Script Which
 - Got `enemyPrefab` , `timeBetweenWaves` , Counter `countdown` 
   -  `spawnPoint` and `waveNumber`
 - When `countdown` Hit Zero `SpawnWave();` Method Called by `StartCoroutine(SpawnWave());` 
-   > which is method handler with an ability to wait for specific time.
+   
+> which is method handler with an ability to wait for specific time.
+
 ```
  private IEnumerator SpawnWave()
     {
@@ -82,7 +84,7 @@ Then Create `Bullet` Script which
     and `Instantiate` destruction particle system *(impactEffect)*
     then destroy bullet, target and impactEffect after **2 sec**.
 
-second step
+Second step
 
 Update `Turret` Script 
 in `Update()` Method  add check for `fireCountDown`
@@ -123,7 +125,9 @@ So it only finds it at the very beginning of the game and then Cache it.
 Playing around with Camera Controller that allow the player to move around the camera in an RTS-inspired way.
 
 **TODO: Enhancement use this reference: http://forum.unity3d.com/threads/rts-camera-script.72045/**
+
 **TODO: Continue work on RTS camera from: https://github.com/Marloxo/RtsCameraTest thanks to garcialuigi**
+
 We start by adding `CameraController` Script which will be responsible for
  - Taking *user input* and move the camera according to that input
  > transform.Translate(Vector3.forward * panSpeed * Time.deltaTime);
@@ -166,7 +170,7 @@ Start making a shop where the player can purchase different turrets.
  - Editing `OnMouseDown()` Method to check if `GetTurretToBuild()` is not null which mean no turret selected.
  - Editing `OnMouseEnter()` Method to check if mouse over UI element then do nothing to avoid overflow clicking.
 
- ## 9. Stage nine:
+## 9. Stage nine:
  :construction: Little House Cleaning
 
 PS: 
@@ -240,7 +244,7 @@ and `startlives`.
   `TakeDamage()` which will be responsible for damaging the enemy Prefab with a specific amount from bullet and calling `Die()` method in case health bellow Zero,
   and `Die()` which will be responsible for destroying enemy Prefab and add some money for the player.
 - Then we add `GameManager` Script which will be responsible for end game, restart the game and maybe pause the game.
-- Then We modify `Bullet` script by modifies `Damage` method which will be call `TakeDamage()` method instead of destroy the Enemy object which will handle that for us as previously mentioned,
+- Then We modify `Bullet` script by modifies `Damage` method which will be call `TakeDamage()` method instead of destroying the Enemy object which will handle that for us as previously mentioned,
   and add `damage` parameter which will specify the amount of damage will be taken.
 
 ## 14. Stage fourteen:
