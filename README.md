@@ -1,8 +1,9 @@
 <h1 align="center" style="display:inline">  
   Tower Defense Game  🎮
-  <img /></h1>
-
+<img /></h1>
 A 3D Tower Defense Game built using [Unity][1] engine written in **C#** .
+<p align="center">  
+  <img src="http://octodex.github.com/images/stormtroopocat.jpg" height="300" width="320"/></p>
 
 ##Table of Contents :book:
 - [Software](https://github.com/Marloxo/Tower-Defense-Game#software-space_invader)
