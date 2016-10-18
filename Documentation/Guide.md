@@ -262,3 +262,26 @@ Say Hello to the brand new *`laser Beamer`*.
   Then we disable the *laser* if `target null` to turn off the laser when no target in the range
   and encapsulate the Targe Lock in `LockOnTarge()` method.
   Finally, we add `Laser()` method to draw *Line Renderer* between the `turret` and `target`.
+
+## 15. Stage fifteen:
+Rock and roll with the Laser Beamer particle effects!
+
+- We start by Adding new particle system for laser effect with a shape of *cone*.
+- Then we add new materials and change the color to green.
+- We optimize the particle collision by changing `collision with` option to `Environment` which is new layer
+  we will add to all node and path object.
+  So we select all node and path and add them new layer called `Environment`,
+  by that, we specify the object which will collide with.
+- Then we modify `Turret` Script by Adding reference to particle system,
+  and enable it in `Laser()` method, and disable it in `Update()` method is there is *no target*.
+- After that, we specify the position of the particle in `Laser()` method with offset,
+  So we make a `Vector3` between the target and firePoint to get the direction,
+  Finally, we change the rotation of particle to make the particle point to our turret by using:
+> Quaternion.lookRotation(dir);
+
+- Then we add **`Glow`** which will be nested child particular system, first we remove the shape
+  to give it the `Glow` effect then we change the material to new material with new color,
+  Finally, we change the `color over lifetime` option to make it a bit transparent at the end of its lifetime
+  Which will give it a flash effect.
+- Finally, We add a point light with green color with the default setting,
+  and enable-disable the point light from `turret` Script as we did with the particle system.
