@@ -260,7 +260,7 @@ Say Hello to the brand new *`laser Beamer`*.
 - After that, we edit `Turret` Script and organize the parameter little bit
   Then we modify the `Update()` method by checking first if this turret uses laser
   Then we disable the *laser* if `target null` to turn off the laser when no target in the range
-  and encapsulate the Targe Lock in `LockOnTarge()` method.
+  and encapsulate the Target Lock in `LockOnTarge()` method.
   Finally, we add `Laser()` method to draw *Line Renderer* between the `turret` and `target`.
 
 ## 15. Stage fifteen:
@@ -285,3 +285,22 @@ Rock and roll with the Laser Beamer particle effects!
   Which will give it a flash effect.
 - Finally, We add a point light with green color with the default setting,
   and enable-disable the point light from `turret` Script as we did with the particle system.
+
+## 16. Stage sixteen:
+Slow & damage enemies over time by Laser Beamer!
+
+- We start by modifying `turret` script with adding damageOverControl
+  and editing `Laser()` by calling `TakeDamage()` method in `Enemy` script
+  and passing the amount of damageOverControl multiply by `Time.deltaTime` to cancel any difference between computers.
+  However instead of calling that every frame we cash our target in `targetEnemy` in `UpdateTarget()` method
+- Then we modify our `Enemy` Script and separate the basic enemy logic from movement,
+- After that, we sync our speed between the two script by adding `[RequireComponent(typeof(Enemy))]` in top of our class,
+  In addition, we use `[HideInInspector]` taq to make our public variable hidden in Inspector.
+- Then we add Slow functionality to our enemies by calling `Slow()` method in `laser()` method.
+  In `Slow()` method We multiply by *startSpeed* to allow the slow function to decrease our speed
+  only one time from the default speed. //or it will continue decreasing until it will stop! (and surely we don't want that!).
+- Finally, we want to reset our speed after we become out of turret range,
+  So we go to `EnemyMovement` Script in `Update()` method and reset the Enemy speed there.
+  But we want to make sure to call the `Enemy` Script before `EnemyMovement` to make sure they synchronize correctly
+  We do that by going to:
+> Unity -> Edit -> ProjectSetting -> ScriptExecutionOrder
