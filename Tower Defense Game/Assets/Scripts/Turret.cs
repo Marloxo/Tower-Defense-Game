@@ -2,6 +2,7 @@
 public class Turret : MonoBehaviour
 {
     private Transform target;
+    private Enemy targetEnemy;
     [Header("General")]
     public float range = 15f;
     [Header("Use Bullets (default)")]
@@ -10,6 +11,8 @@ public class Turret : MonoBehaviour
     public float fireCountDown = 0f;
     [Header("Use Laser")]
     public bool useLaser = false;
+    public int damageOverTime = 30;
+    public float slowAmount = 0.5f;
     public LineRenderer lineRenderer;
     public ParticleSystem impactEffect;
     public Light impactLight;
@@ -39,7 +42,10 @@ public class Turret : MonoBehaviour
             }
         }
         if (nearestEnemy != null && shortestDistance <= range)
+        {
             target = nearestEnemy.transform;
+            targetEnemy = nearestEnemy.GetComponent<Enemy>();
+        }
         else
             target = null;
     }
@@ -77,6 +83,11 @@ public class Turret : MonoBehaviour
 
     private void Laser()
     {
+        //Damage Stuff
+        targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
+        targetEnemy.Slow(slowAmount);
+
+        //Graphic Stuff
         if (!lineRenderer.enabled) //Activate Laser
         {
             lineRenderer.enabled = true;
@@ -102,7 +113,7 @@ public class Turret : MonoBehaviour
         //To transform lookRotation rotation to Angles (x,y,z)
         //Vector3 rotation = lookRotation.eulerAngles;
 
-        //Enhancment to smooth the move from one state to another
+        //Enhancement to smooth the move from one state to another
         Vector3 rotation = Quaternion.Lerp(PartToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
 
         PartToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
