@@ -29,7 +29,7 @@ Add Wave Spawner Script Which
    
 > which is method handler with an ability to wait for specific time.
 
-```
+```csharp
  private IEnumerator SpawnWave()
     {
         waveNumber++;
@@ -295,7 +295,7 @@ Slow & damage enemies over time by Laser Beamer!
   However instead of calling that every frame we cash our target in `targetEnemy` in `UpdateTarget()` method
 - Then we modify our `Enemy` Script and separate the basic enemy logic from movement,
 - After that, we sync our speed between the two script by adding `[RequireComponent(typeof(Enemy))]` in top of our class,
-  In addition, we use `[HideInInspector]` taq to make our public variable hidden in Inspector.
+  In addition, we use `[HideInInspector]` tag to make our public variable hidden in Inspector.
 - Then we add Slow functionality to our enemies by calling `Slow()` method in `laser()` method.
   In `Slow()` method We multiply by *startSpeed* to allow the slow function to decrease our speed
   only one time from the default speed. //or it will continue decreasing until it will stop! (and surely we don't want that!).
@@ -304,3 +304,33 @@ Slow & damage enemies over time by Laser Beamer!
   But we want to make sure to call the `Enemy` Script before `EnemyMovement` to make sure they synchronize correctly
   We do that by going to:
 > Unity -> Edit -> ProjectSetting -> ScriptExecutionOrder
+
+## 17. Stage seventeen:
+Let's add a game over screen to the game!
+
+- We start by sketching out the UI, So we go to `OverlayCanvas` and change `Canvas scaler` option to scale with screen size, and
+ change the `Match` option to `1` to Match the *height* too. 
+- Then we add the UI elements like GameObject which will be the `GameOverUI` and add a cool background color.
+- After that, we modify our `GameManager` script by adding GameOverUI instance to enable and disable the UI.
+  Then we want to disable the moving ability to camera when `GameOverUI` enabled,
+  So we modify our `CameraController` script by checking if the game is over then we disable the `CameraController` script. 
+
+- PS: one thing we need to be careful with is that static variable carry on from one scene to another
+  Which mean that the value of static remain the same even if the scene changed or reloaded.  
+> Always initialize the static variable in `start()` Method because `start()` Called every time scene start
+
+- Then we add `Rounds` variable to our `PlayerStats` script to keep track of Rounds,
+  Then we update `waveSpawner` Script to increase `Rounds`.
+- Going back to `GameOverUI` we add new Script Called `GameOver` and add the `OnEnable()` method which called whenever this element enabled
+  which will get the `Rounds` and print it to the screen.
+- After that we want to enable the *Retry* button so we add method Called `Retry()` and we call `SceneManager`
+  but we need an efficient way to do that So we call the *SceneManager* and get the current active scene index.
+
+```csharp
+ SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+```
+
+- IMP: One small issue here that the light does not always start when we reload the scene,
+  So we fix that by removing the *auto* checkbox in lighting option. (And that's it!) 
+
+- Finally, we spice up our UI with some animation.
