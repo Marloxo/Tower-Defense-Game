@@ -19,17 +19,17 @@ public class Node : MonoBehaviour
     }
     void OnMouseDown()
     {
-        if (!buildManager.CanBuild)
-            return;
-
         //Change the Node Color
         rend.material.color = Color.grey;
 
-        if (turret != null)
+        if (turret != null) //Node already contain turret
         {
-            Debug.Log("Can't Build there!! - TODO Display on screen");
+            buildManager.SelectNode(this);
             return;
         }
+        if (!buildManager.CanBuild) //No turret selected
+            return;
+
         buildManager.BuildTurretOn(this);
     }
     public Vector3 GetBuildPosition()
@@ -44,9 +44,9 @@ public class Node : MonoBehaviour
         if (!buildManager.CanBuild)
             return;
         if (buildManager.HasMoeny)
-           rend.material.color = hoverColor;
-        else   
-        rend.material.color = notEnoughMoneyColor;
+            rend.material.color = hoverColor;
+        else
+            rend.material.color = notEnoughMoneyColor;
     }
     void OnMouseExit()
     {
