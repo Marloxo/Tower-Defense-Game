@@ -1,6 +1,8 @@
 <h1 align="center" style="display:inline">  
   Tower Defense Game  🎮
 <img /></h1>
+[![Build Status](https://travis-ci.org/Marloxo/Tower-Defense-Game.svg?branch=master)](https://travis-ci.org/Marloxo/Tower-Defense-Game)
+
 A 3D Tower Defense Game built using [Unity][1] engine written in **C#** .
 <p align="center">  
   <img src="http://octodex.github.com/images/stormtroopocat.jpg" height="300" width="320"/></p>

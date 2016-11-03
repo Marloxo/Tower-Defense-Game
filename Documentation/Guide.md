@@ -334,3 +334,23 @@ Let's add a game over screen to the game!
   So we fix that by removing the *auto* checkbox in lighting option. (And that's it!) 
 
 - Finally, we spice up our UI with some animation.
+
+## 18. Stage eighteen:
+Create popup UI for upgrading and selling turrets
+
+- We start by adding new UI called `NodeUI` and position it right top of our turret
+  then we add `Canvas` to hold the *UI buttons* and the upgrading and selling buttons
+
+- Then we modify `buildManager` Script by adding reference to our Node which will be selected to show the `NodeUI`,
+  and reference to our `NodeUI` script,
+  Then we Create new function Called `selectNode()` and because we want only to select a node or turret at time so we set
+`turretToBuild=null;` and the same `selectedNode=null;` in `SelectTurretToBuild()` method.
+
+- Then we modify `OnMouseDown()` method in `Node` Script by calling `selectNode()` method in case the node already got turret
+
+- After that, we Create new Script called `NodeUI` which will be responsible to show **UI** for that node
+  then we create `SetTarget()` method to enable the `Canvas` to that node in it's position using
+  `GetBuildPosition()` which return the position with offset.
+- Then we need way to hide UI when we click the node again or when we `SelectTurretToBuild` so we create `Hide()` method which will handle that
+  by setting Canvas active to false.
+- Finally, we add cool small fade-in animation whenever we click the node to show the **UI**.
