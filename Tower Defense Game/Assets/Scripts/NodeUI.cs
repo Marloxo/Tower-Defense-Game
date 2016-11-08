@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class NodeUI : MonoBehaviour
 {
     public GameObject ui;
+    public Text upgradeCost;
+    public Button upgradeButton;
     private Node target;
     public void SetTarget(Node _target)
     {
@@ -11,9 +14,25 @@ public class NodeUI : MonoBehaviour
 
         ui.SetActive(true);
         transform.position = target.GetBuildPosition(); //which give us node position with offset
+
+        if (!target.isUpgraded)
+        {
+            upgradeCost.text = "$" + target.turretBluePrint.upgradeCost;
+            upgradeButton.interactable = true;
+        }
+        else
+        {
+            upgradeCost.text = "Maximized";
+            upgradeButton.interactable = false;
+        }
     }
     public void Hide()
     {
         ui.SetActive(false);
+    }
+    public void Upgrade()
+    {
+        target.UpgradeTurret();
+        BuildManager.instance.DeselectNode();
     }
 }
