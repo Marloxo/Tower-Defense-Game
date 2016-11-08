@@ -348,9 +348,26 @@ Create popup UI for upgrading and selling turrets
 
 - Then we modify `OnMouseDown()` method in `Node` Script by calling `selectNode()` method in case the node already got turret
 
-- After that, we Create new Script called `NodeUI` which will be responsible to show **UI** for that node
-  then we create `SetTarget()` method to enable the `Canvas` to that node in it's position using
+- After that, we Create new Script called `NodeUI` which will be responsible for showing **UI** for that node
+  then we create `SetTarget()` method to enable the `Canvas` to that node in its position using
   `GetBuildPosition()` which return the position with offset.
 - Then we need way to hide UI when we click the node again or when we `SelectTurretToBuild` so we create `Hide()` method which will handle that
   by setting Canvas active to false.
 - Finally, we add cool small fade-in animation whenever we click the node to show the **UI**.
+
+## 19. Stage nineteen:
+Let's make an upgrade system for our turrets :)
+
+- first of all, we fix a previous bug with the *UI* that the top cells got under the UI so it's not always get the mouse event,
+  so with the quick fix, we disable `Graphic Raycaster` for `TopCanvas` and that's it.
+- Then We start by modifying the `Node` script by adding `BuildTurret()` method which will be instead of `BuildTurretOn()` method in `buildManager`
+  because it will be reasonable to be on the node.
+- Then We modify the `BuildManager` script by adding `GetTurretToBuild()` method to return the turret to build.
+- Going back to `Node` script we add new method `UpgradeTurret()`
+- After that we modify `TurretBluePrint` script by adding `UpgradeTurret` prefab and `upgradeCost`,
+  By that, we are going to have only two version for each turret the ordinary one and the upgraded one.
+
+- Then we want to add a way to call our `UpgradeTurret()` method so we go to `NodeUI` script and add new method called `Upgrade()`
+  Which will simply call `UpgradeTurret()` method and hide the menu after that.
+- Finally, We modify `NodeUI` script by Creating reference to our text to change the *Cost*,
+  and modify the `SetTarget()` method to show the *upgradeCost* and check if turret already upgraded.
