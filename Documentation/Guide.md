@@ -378,3 +378,11 @@ Let's make some functionality for selling turrets :)
 - First of all, we create upgraded version for **MissileLauncher** and **LaserBeamer**
 - Then we modify the `Node` Script by adding `SellTurret()` method the same as for upgrade we edit `NodeUI` script to hook everything.
 - Finally, we create a Sell effect for a turret.
+
+## 21. Stage twenty-one:
+Let's add a Pause Menu to our game!
+
+- First of all, we modify `CameraController` Script and delete the toggle pause to make new Script called `PauseMenu`
+  which will be the central place to control the Pause Menu.
+- Then we Create the `PauseMenuUI` and add buttons.
+- Finally, we create button animation by changing button transition to *animation* and Generate animation.
