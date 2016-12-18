@@ -358,7 +358,7 @@ Create popup UI for upgrading and selling turrets
 ## 19. Stage nineteen:
 Let's make an upgrade system for our turrets :)
 
-- first of all, we fix a previous bug with the *UI* that the top cells got under the UI so it's not always get the mouse event,
+- First of all, we fix a previous bug with the *UI* that the top cells got under the UI so it's not always get the mouse event,
   so with the quick fix, we disable `Graphic Raycaster` for `TopCanvas` and that's it.
 - Then We start by modifying the `Node` script by adding `BuildTurret()` method which will be instead of `BuildTurretOn()` method in `buildManager`
   because it will be reasonable to be on the node.
@@ -371,3 +371,10 @@ Let's make an upgrade system for our turrets :)
   Which will simply call `UpgradeTurret()` method and hide the menu after that.
 - Finally, We modify `NodeUI` script by Creating reference to our text to change the *Cost*,
   and modify the `SetTarget()` method to show the *upgradeCost* and check if turret already upgraded.
+
+## 20. Stage twenty:
+Let's make some functionality for selling turrets :)
+
+- First of all, we create upgraded version for **MissileLauncher** and **LaserBeamer**
+- Then we modify the `Node` Script by adding `SellTurret()` method the same as for upgrade we edit `NodeUI` script to hook everything.
+- Finally, we create a Sell effect for a turret.
