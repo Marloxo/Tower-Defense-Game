@@ -52,7 +52,7 @@ public class Node : MonoBehaviour
 
         turretBluePrint = bluePrint;
 
-        GameObject effect = (GameObject)Instantiate(buildManager.BuildEffect, this.GetBuildPosition(), Quaternion.identity);
+        GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, this.GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);
     }
     public Vector3 GetBuildPosition()
@@ -74,11 +74,24 @@ public class Node : MonoBehaviour
         GameObject _turret = (GameObject)Instantiate(turretBluePrint.upgradedPrefab, this.GetBuildPosition(), Quaternion.identity);
         turret = _turret;
 
-        GameObject effect = (GameObject)Instantiate(buildManager.BuildEffect, this.GetBuildPosition(), Quaternion.identity);
+        GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, this.GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);
 
         isUpgraded = true;
     }
+
+    public void SellTurret()
+    {
+        PlayerStats.Money += turretBluePrint.GetSellAmount();
+
+        //Spawn Cool Effect
+        GameObject effect = (GameObject)Instantiate(buildManager.sellEffect, this.GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
+
+        Destroy(turret);
+        turretBluePrint = null;
+    }
+
     void OnMouseEnter()  //On Mouse Hover
     {
         //check if mouse over UI element then do nothing to avoid overflow clicking.

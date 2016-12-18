@@ -3,7 +3,8 @@ public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
 
-    public GameObject BuildEffect;
+    public GameObject buildEffect;
+    public GameObject sellEffect;
     private TurretBluePrint turretToBuild;
     private Node selectedNode;
     public NodeUI nodeUI;
