@@ -386,3 +386,8 @@ Let's add a Pause Menu to our game!
   which will be the central place to control the Pause Menu.
 - Then we Create the `PauseMenuUI` and add buttons.
 - Finally, we create button animation by changing button transition to *animation* and Generate animation.
+
+## 22. Stage twenty-two:
+Let's add a cool Main Menu to our game!
+
+- We just create a new 3D UI for Main Menu and upgrade unity to v5.5.0f3
