@@ -379,7 +379,7 @@ Let's make some functionality for selling turrets :)
 - Then we modify the `Node` Script by adding `SellTurret()` method the same as for upgrade we edit `NodeUI` script to hook everything.
 - Finally, we create a Sell effect for a turret.
 
-## 21. Stage twenty-one:
+## 21. Stage twenty one:
 Let's add a Pause Menu to our game!
 
 - First of all, we modify `CameraController` Script and delete the toggle pause to make new Script called `PauseMenu`
@@ -387,7 +387,20 @@ Let's add a Pause Menu to our game!
 - Then we Create the `PauseMenuUI` and add buttons.
 - Finally, we create button animation by changing button transition to *animation* and Generate animation.
 
-## 22. Stage twenty-two:
+## 22. Stage twenty two:
 Let's add a cool Main Menu to our game!
 
 - We just create a new 3D UI for Main Menu and upgrade unity to v5.5.0f3
+
+## 23. Stage twenty three:
+Let's add a health bar to each of our enemies!
+
+- First of all, we create new Canvas to hold the `healthbar` and change it to **World space** to stick with the *enemy*
+- Then we add `healthbar` which will be an Image.
+- After that, we import white Image sprite (we don't use the default ones because they scale very wired)
+- Then we change setting to   
+  - texture type: sprite 
+  - filter mode:  point (no filter)
+  - Generate mip maps: off
+- After that we go to Image type and change it to `Filled` and fill method to `Horizontal`
+- Finally, we edit our `Enemy` Script and reference the Image and control the `healthbar` according to health amount.
