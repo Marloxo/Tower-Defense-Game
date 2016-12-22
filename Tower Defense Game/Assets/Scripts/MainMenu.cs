@@ -5,9 +5,10 @@ using System.Collections;
 public class MainMenu : MonoBehaviour
 {
     public string levelToLoad = "MainLevel";
+    public SceneFader sceneFader;
     public void play()
     {
-        SceneManager.LoadScene(levelToLoad);
+        sceneFader.FadeTo(levelToLoad);
     }
 
     public void quit()

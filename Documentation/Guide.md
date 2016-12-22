@@ -404,3 +404,11 @@ Let's add a health bar to each of our enemies!
   - Generate mip maps: off
 - After that we go to Image type and change it to `Filled` and fill method to `Horizontal`
 - Finally, we edit our `Enemy` Script and reference the Image and control the `healthbar` according to health amount.
+
+## 24. Stage twenty four:
+Let's add a fade in/out when we change scenes!
+
+- First of all, we create simply UI to animate between on and off to fade between scene
+- Then we remove `Graphic recast` so it's dosen't block user input,
+- After that, we create new script Called `SceneFader` which will animate fade in and out between scenes.
+- Finally, we use our new `SceneFader` prefab to animate loading scenes in all over our game.
