@@ -4,7 +4,8 @@ using System.Collections;
 using UnityEngine.UI;
 public class WaveSpawner : MonoBehaviour
 {
-    public Transform enemyPrefab;
+    public static int enemiesAlive = 0;
+    public Wave[] waves;
     public Transform spawnPoint;
     public float timeBetweenWaves = 5.5f;
     public float countdown = 2f;
@@ -12,11 +13,15 @@ public class WaveSpawner : MonoBehaviour
     private int waveNumber = 0;
     void Update()
     {
+        if (enemiesAlive > 0) //do nothing until no enemies Alive
+            return;
+
         if (countdown <= 0f)
-        {   //SpawnWave();
+        {
             StartCoroutine(SpawnWave());
 
             countdown = timeBetweenWaves;
+            return;
         }
         countdown -= Time.deltaTime;
         //To Make Sure don't display negative number
@@ -27,17 +32,24 @@ public class WaveSpawner : MonoBehaviour
 
     private IEnumerator SpawnWave()
     {
-        waveNumber++;
         PlayerStats.Rounds++;
-        for (int i = 0; i < waveNumber; i++)
+        Wave wave = waves[waveNumber];
+
+        for (int i = 0; i < wave.count; i++)
         {
-            SpawnEnemy();
-            yield return new WaitForSeconds(0.5f);
+            SpawnEnemy(wave.enemy);
+            yield return new WaitForSeconds(1f / wave.rate);
+        }
+        waveNumber++;
+        if (waveNumber == waves.Length) //player won all waves!! then level won
+        {
+            this.enabled = false;
         }
     }
 
-    private void SpawnEnemy()
+    private void SpawnEnemy(GameObject enemy)
     {
-        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+        enemiesAlive++;
     }
 }

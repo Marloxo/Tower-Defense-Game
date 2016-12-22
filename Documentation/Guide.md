@@ -412,3 +412,12 @@ Let's add a fade in/out when we change scenes!
 - Then we remove `Graphic recast` so it's dosen't block user input,
 - After that, we create new script Called `SceneFader` which will animate fade in and out between scenes.
 - Finally, we use our new `SceneFader` prefab to animate loading scenes in all over our game.
+
+## 25. Stage twenty five:
+Let's improve our Wave Spawner to make it more customizable!
+
+- First of all, we start by Editing `waveSpawner` Script to keep track of how many enemies in the scene
+  so we only spawn enemies when there is no enemies live.
+- Then we specify waves configuration separately by creating new Script Called `Wave`.
+- After that we create three type of enemies with different material, speed and cost.
+- Finally, we edit `SpawnWave()` method to make sure if player pass all waves then he will be won the level.
