@@ -401,14 +401,14 @@ Let's add a health bar to each of our enemies!
 - Then we change setting to   
   - texture type: sprite 
   - filter mode:  point (no filter)
-  - Generate mip maps: off
+  - Generate mipmaps: off
 - After that we go to Image type and change it to `Filled` and fill method to `Horizontal`
 - Finally, we edit our `Enemy` Script and reference the Image and control the `healthbar` according to health amount.
 
 ## 24. Stage twenty four:
 Let's add a fade in/out when we change scenes!
 
-- First of all, we create simply UI to animate between on and off to fade between scene
+- First of all, we create simple UI to animate between on and off to fade between scene
 - Then we remove `Graphic recast` so it's dosen't block user input,
 - After that, we create new script Called `SceneFader` which will animate fade in and out between scenes.
 - Finally, we use our new `SceneFader` prefab to animate loading scenes in all over our game.
@@ -421,3 +421,17 @@ Let's improve our Wave Spawner to make it more customizable!
 - Then we specify waves configuration separately by creating new Script Called `Wave`.
 - After that we create three type of enemies with different material, speed and cost.
 - Finally, we edit `SpawnWave()` method to make sure if player pass all waves then he will be won the level.
+
+## 26. Stage twenty six:
+Let's make a menu for selecting levels!
+
+- First of all, we start by adding new base Canvas called `UICanavas` and set it to scale with screen size
+- Then we add *panel* for all levels buttons and we rename it to `levels`,
+  then we create an empty GameObject as child, Called `ScrollRect` and set it to stretch,
+  then we create another empty GameObject as child, Called `Content`, and add `Grid layout group`,
+  finally we add buttons.
+- After that, we add `Content size filter` to **Content** to automatically resize the Content to fit all buttons,
+  then we add `Rect Mask 2D` to `ScrollRect` to cut off the extending buttons.
+  and add `ScrollRect` components.
+- Then we add `LevelSelector` Script to empty GameObject Called `LevelSelector` which will fade to scene when button clicked
+- Finally, we add ScrollBar as child for `levels` and then reference it from `ScrollRect` in vertical scrollbar field.
