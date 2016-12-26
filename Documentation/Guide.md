@@ -435,3 +435,13 @@ Let's make a menu for selecting levels!
   and add `ScrollRect` components.
 - Then we add `LevelSelector` Script to empty GameObject Called `LevelSelector` which will fade to scene when button clicked
 - Finally, we add ScrollBar as child for `levels` and then reference it from `ScrollRect` in vertical scrollbar field.
+
+## 27. Stage twenty seven:
+Let's make it possible for the player to unlock new levels as he progresses.
+
+- First of all, we start by editing `LevelSelector` script to add array of all buttons we use to control them
+  then we disable them all except the first one.
+- Then we save our progress by using built-in `PlayerPrefs` but here we want to retrieve the **levelReached** from it.
+- After that, we edit `GameManager` script by adding new function `WinLevel()` which will load the next level and increase **levelReached**.
+- Finally, we Fix bug with calculating **enemiesAlive** to prevent win the level before killing all enemies
+  and we do that by setting **enemiesAlive** equal to `Wave.count`.
