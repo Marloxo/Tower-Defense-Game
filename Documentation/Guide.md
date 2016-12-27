@@ -171,7 +171,7 @@ Start making a shop where the player can purchase different turrets.
  - Editing `OnMouseEnter()` Method to check if mouse over UI element then do nothing to avoid overflow clicking.
 
 ## 9. Stage nine:
- :construction: Little House Cleaning
+:construction: Little House Cleaning
 
 PS: 
  - When u Import new asset always import the new asset in newly separated folder
@@ -445,3 +445,14 @@ Let's make it possible for the player to unlock new levels as he progresses.
 - After that, we edit `GameManager` script by adding new function `WinLevel()` which will load the next level and increase **levelReached**.
 - Finally, we Fix bug with calculating **enemiesAlive** to prevent win the level before killing all enemies
   and we do that by setting **enemiesAlive** equal to `Wave.count`.
+
+## 28. Stage twenty eight:
+Let's create some cool UI for when the player beats a level.
+
+- First of all, we start by creating `CompleteLevel` then we need to separate *Rounds number* to separated object to avoid duplication
+  So we create `RoundsSurvived` Script and move the `OnEnable()` method from `GameOver` script
+  then we create new method called `AnimateText` to animate the Rounds number.
+- Then we create new script `CompleteLevel` which will be responsible to handle buttons click.
+- Finally, we fix some bugs starting by counting down **enemiesAlive** in `TakeDamage()` in `Enemy` script
+  what happened is that destroy GameObject take sometimes to destroy GameObject which produce another call from update method
+  and call the `Die()` method again, we simply fix that by adding `isDead` variable to check if GameObject already dead or not.

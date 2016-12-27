@@ -16,7 +16,11 @@ public class WaveSpawner : MonoBehaviour
     {
         if (enemiesAlive > 0) //do nothing until no enemies Alive
             return;
-
+        if (waveNumber == waves.Length) //player won all waves!! then level won
+        {
+            gameManager.WinLevel();
+            this.enabled = false;
+        }
         if (countdown <= 0f)
         {
             StartCoroutine(SpawnWave());
@@ -33,24 +37,16 @@ public class WaveSpawner : MonoBehaviour
 
     private IEnumerator SpawnWave()
     {
-        if (waveNumber < waves.Length)
-        {
-            PlayerStats.Rounds++;
-            Wave wave = waves[waveNumber];
+        PlayerStats.Rounds++;
+        Wave wave = waves[waveNumber];
 
-            enemiesAlive = wave.count; //enemy count in this wave
-            for (int i = 0; i < wave.count; i++)
-            {
-                SpawnEnemy(wave.enemy);
-                yield return new WaitForSeconds(1f / wave.rate);
-            }
-            waveNumber++;
-        }
-        else if (waveNumber == waves.Length && enemiesAlive == 0) //player won all waves!! then level won
+        enemiesAlive = wave.count; //enemy count in this wave
+        for (int i = 0; i < wave.count; i++)
         {
-            gameManager.WinLevel();
-            this.enabled = false;
+            SpawnEnemy(wave.enemy);
+            yield return new WaitForSeconds(1f / wave.rate);
         }
+        waveNumber++;
     }
 
     private void SpawnEnemy(GameObject enemy)
